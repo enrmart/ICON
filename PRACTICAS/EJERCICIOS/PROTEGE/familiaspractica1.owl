@@ -1,0 +1,358 @@
+Prefix(:=<http://www.semanticweb.org/enroc/ontologies/2022/10/familias#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(familias:=<http://www.semanticweb.org/enroc/ontologies/2022/10/familias#>)
+Prefix(untitled-ontology-9:=<http://www.semanticweb.org/enroc/ontologies/2022/10/untitled-ontology-9#>)
+
+
+Ontology(<http://www.semanticweb.org/enroc/ontologies/2022/10/familias>
+Annotation(rdfs:comment "Enrique Martin Calvo
+Alberto Martin De Vega
+Practica 1 :Descripcion del universo  de las familias")
+
+Declaration(Class(familias:Abuelos))
+Declaration(Class(familias:FamiliaNumerosa))
+Declaration(Class(familias:Genero))
+Declaration(Class(familias:Hija))
+Declaration(Class(familias:Hijo))
+Declaration(Class(familias:Madre))
+Declaration(Class(familias:MenorDeEdad))
+Declaration(Class(familias:Padre))
+Declaration(Class(familias:ParejaCon2Hijos))
+Declaration(Class(familias:ParejasConHijos))
+Declaration(Class(familias:Persona))
+Declaration(Class(familias:Progenitor))
+Declaration(Class(familias:TerceraEdad))
+Declaration(Class(familias:Tios))
+Declaration(ObjectProperty(familias:esAbuelaDe))
+Declaration(ObjectProperty(familias:esAbueloDe))
+Declaration(ObjectProperty(familias:esAscendenteDe))
+Declaration(ObjectProperty(familias:esDescendenteDe))
+Declaration(ObjectProperty(familias:esHermanaDe))
+Declaration(ObjectProperty(familias:esHermanoDe))
+Declaration(ObjectProperty(familias:esHijaDe))
+Declaration(ObjectProperty(familias:esHijoDe))
+Declaration(ObjectProperty(familias:esMadreDe))
+Declaration(ObjectProperty(familias:esMaridoDe))
+Declaration(ObjectProperty(familias:esMujerDe))
+Declaration(ObjectProperty(familias:esPadreDe))
+Declaration(ObjectProperty(familias:esParejaDe))
+Declaration(ObjectProperty(familias:tieneGenero))
+Declaration(ObjectProperty(familias:tieneHermanacion))
+Declaration(DataProperty(familias:numeroHijos))
+Declaration(DataProperty(familias:tieneEdad))
+Declaration(NamedIndividual(familias:Eugenia))
+Declaration(NamedIndividual(familias:Juan))
+Declaration(NamedIndividual(familias:Lucia))
+Declaration(NamedIndividual(familias:Luis))
+Declaration(NamedIndividual(familias:Manuel))
+Declaration(NamedIndividual(familias:Maria))
+Declaration(NamedIndividual(familias:Pedro))
+Declaration(NamedIndividual(familias:Sandra))
+Declaration(NamedIndividual(familias:femenino))
+Declaration(NamedIndividual(familias:masculino))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: familias:esAbuelaDe (familias:esAbuelaDe)
+
+SubObjectPropertyOf(familias:esAbuelaDe familias:esAscendenteDe)
+ObjectPropertyDomain(familias:esAbuelaDe familias:Persona)
+ObjectPropertyDomain(familias:esAbuelaDe ObjectHasValue(familias:tieneGenero familias:femenino))
+ObjectPropertyRange(familias:esAbuelaDe familias:Persona)
+
+# Object Property: familias:esAbueloDe (familias:esAbueloDe)
+
+SubObjectPropertyOf(familias:esAbueloDe familias:esAscendenteDe)
+ObjectPropertyDomain(familias:esAbueloDe familias:Persona)
+ObjectPropertyDomain(familias:esAbueloDe ObjectHasValue(familias:tieneGenero familias:masculino))
+ObjectPropertyRange(familias:esAbueloDe familias:Persona)
+
+# Object Property: familias:esAscendenteDe (familias:esAscendenteDe)
+
+SubObjectPropertyOf(familias:esAscendenteDe owl:topObjectProperty)
+InverseObjectProperties(familias:esAscendenteDe familias:esDescendenteDe)
+AsymmetricObjectProperty(familias:esAscendenteDe)
+IrreflexiveObjectProperty(familias:esAscendenteDe)
+ObjectPropertyDomain(familias:esAscendenteDe familias:Persona)
+ObjectPropertyRange(familias:esAscendenteDe familias:Persona)
+DisjointObjectProperties(familias:esAscendenteDe familias:esDescendenteDe)
+
+# Object Property: familias:esDescendenteDe (familias:esDescendenteDe)
+
+SubObjectPropertyOf(familias:esDescendenteDe owl:topObjectProperty)
+AsymmetricObjectProperty(familias:esDescendenteDe)
+IrreflexiveObjectProperty(familias:esDescendenteDe)
+ObjectPropertyDomain(familias:esDescendenteDe familias:Persona)
+ObjectPropertyRange(familias:esDescendenteDe familias:Persona)
+
+# Object Property: familias:esHermanaDe (familias:esHermanaDe)
+
+SubObjectPropertyOf(familias:esHermanaDe familias:tieneHermanacion)
+ObjectPropertyDomain(familias:esHermanaDe familias:Persona)
+ObjectPropertyDomain(familias:esHermanaDe ObjectHasValue(familias:tieneGenero familias:femenino))
+ObjectPropertyRange(familias:esHermanaDe familias:Persona)
+
+# Object Property: familias:esHermanoDe (familias:esHermanoDe)
+
+SubObjectPropertyOf(familias:esHermanoDe familias:tieneHermanacion)
+ObjectPropertyDomain(familias:esHermanoDe ObjectHasValue(familias:tieneGenero familias:masculino))
+
+# Object Property: familias:esHijaDe (familias:esHijaDe)
+
+SubObjectPropertyOf(familias:esHijaDe familias:esDescendenteDe)
+AsymmetricObjectProperty(familias:esHijaDe)
+IrreflexiveObjectProperty(familias:esHijaDe)
+ObjectPropertyDomain(familias:esHijaDe ObjectHasValue(familias:tieneGenero familias:femenino))
+
+# Object Property: familias:esHijoDe (familias:esHijoDe)
+
+SubObjectPropertyOf(familias:esHijoDe familias:esDescendenteDe)
+AsymmetricObjectProperty(familias:esHijoDe)
+IrreflexiveObjectProperty(familias:esHijoDe)
+ObjectPropertyDomain(familias:esHijoDe ObjectHasValue(familias:tieneGenero familias:masculino))
+
+# Object Property: familias:esMadreDe (familias:esMadreDe)
+
+SubObjectPropertyOf(familias:esMadreDe familias:esAscendenteDe)
+AsymmetricObjectProperty(familias:esMadreDe)
+IrreflexiveObjectProperty(familias:esMadreDe)
+ObjectPropertyDomain(familias:esMadreDe ObjectHasValue(familias:tieneGenero familias:femenino))
+
+# Object Property: familias:esMaridoDe (familias:esMaridoDe)
+
+SubObjectPropertyOf(familias:esMaridoDe familias:esParejaDe)
+InverseObjectProperties(familias:esMaridoDe familias:esMujerDe)
+ObjectPropertyDomain(familias:esMaridoDe ObjectHasValue(familias:tieneGenero familias:masculino))
+ObjectPropertyRange(familias:esMaridoDe ObjectHasValue(familias:tieneGenero familias:femenino))
+
+# Object Property: familias:esMujerDe (familias:esMujerDe)
+
+SubObjectPropertyOf(familias:esMujerDe familias:esParejaDe)
+ObjectPropertyDomain(familias:esMujerDe ObjectHasValue(familias:tieneGenero familias:femenino))
+ObjectPropertyRange(familias:esMujerDe ObjectHasValue(familias:tieneGenero familias:masculino))
+
+# Object Property: familias:esPadreDe (familias:esPadreDe)
+
+SubObjectPropertyOf(familias:esPadreDe familias:esAscendenteDe)
+AsymmetricObjectProperty(familias:esPadreDe)
+IrreflexiveObjectProperty(familias:esPadreDe)
+ObjectPropertyDomain(familias:esPadreDe ObjectHasValue(familias:tieneGenero familias:masculino))
+
+# Object Property: familias:esParejaDe (familias:esParejaDe)
+
+SubObjectPropertyOf(familias:esParejaDe owl:topObjectProperty)
+InverseObjectProperties(familias:esParejaDe familias:esParejaDe)
+SymmetricObjectProperty(familias:esParejaDe)
+IrreflexiveObjectProperty(familias:esParejaDe)
+ObjectPropertyDomain(familias:esParejaDe familias:Persona)
+ObjectPropertyRange(familias:esParejaDe familias:Persona)
+
+# Object Property: familias:tieneGenero (familias:tieneGenero)
+
+SubObjectPropertyOf(familias:tieneGenero owl:topObjectProperty)
+FunctionalObjectProperty(familias:tieneGenero)
+ObjectPropertyDomain(familias:tieneGenero familias:Persona)
+ObjectPropertyRange(familias:tieneGenero familias:Genero)
+
+# Object Property: familias:tieneHermanacion (familias:tieneHermanacion)
+
+SubObjectPropertyOf(familias:tieneHermanacion owl:topObjectProperty)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: familias:numeroHijos (familias:numeroHijos)
+
+DataPropertyDomain(familias:numeroHijos familias:Persona)
+DataPropertyRange(familias:numeroHijos xsd:integer)
+
+# Data Property: familias:tieneEdad (familias:tieneEdad)
+
+SubDataPropertyOf(familias:tieneEdad owl:topDataProperty)
+DataPropertyDomain(familias:tieneEdad familias:Persona)
+DataPropertyRange(familias:tieneEdad xsd:integer)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: familias:Abuelos (familias:Abuelos)
+
+EquivalentClasses(familias:Abuelos ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esAbuelaDe familias:Persona)))
+EquivalentClasses(familias:Abuelos ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esAbueloDe familias:Persona)))
+SubClassOf(familias:Abuelos familias:Persona)
+
+# Class: familias:FamiliaNumerosa (familias:FamiliaNumerosa)
+
+EquivalentClasses(familias:FamiliaNumerosa ObjectIntersectionOf(familias:Persona DataSomeValuesFrom(familias:numeroHijos DatatypeRestriction(xsd:integer xsd:minInclusive "3"^^xsd:integer))))
+SubClassOf(familias:FamiliaNumerosa familias:Persona)
+
+# Class: familias:Genero (familias:Genero)
+
+EquivalentClasses(familias:Genero ObjectOneOf(familias:femenino familias:masculino))
+
+# Class: familias:Hija (familias:Hija)
+
+EquivalentClasses(familias:Hija ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esDescendenteDe familias:Persona) ObjectHasValue(familias:tieneGenero familias:femenino)))
+SubClassOf(familias:Hija familias:Persona)
+
+# Class: familias:Hijo (familias:Hijo)
+
+EquivalentClasses(familias:Hijo ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esDescendenteDe familias:Persona) ObjectHasValue(familias:tieneGenero familias:masculino)))
+SubClassOf(familias:Hijo familias:Persona)
+
+# Class: familias:Madre (familias:Madre)
+
+EquivalentClasses(familias:Madre ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esAscendenteDe familias:Persona) ObjectHasValue(familias:tieneGenero familias:femenino)))
+SubClassOf(familias:Madre familias:Persona)
+
+# Class: familias:MenorDeEdad (familias:MenorDeEdad)
+
+EquivalentClasses(familias:MenorDeEdad ObjectIntersectionOf(familias:Persona DataSomeValuesFrom(familias:tieneEdad DatatypeRestriction(xsd:integer xsd:maxExclusive "18"^^xsd:integer))))
+SubClassOf(familias:MenorDeEdad familias:Persona)
+
+# Class: familias:Padre (familias:Padre)
+
+EquivalentClasses(familias:Padre ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esAscendenteDe familias:Persona) ObjectHasValue(familias:tieneGenero familias:masculino)))
+SubClassOf(familias:Padre familias:Persona)
+
+# Class: familias:ParejaCon2Hijos (familias:ParejaCon2Hijos)
+
+EquivalentClasses(familias:ParejaCon2Hijos ObjectIntersectionOf(familias:Persona DataExactCardinality(2 familias:numeroHijos xsd:integer)))
+SubClassOf(familias:ParejaCon2Hijos familias:Persona)
+
+# Class: familias:ParejasConHijos (familias:ParejasConHijos)
+
+EquivalentClasses(familias:ParejasConHijos ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esAscendenteDe familias:Persona) ObjectSomeValuesFrom(familias:esParejaDe familias:Persona)))
+SubClassOf(familias:ParejasConHijos familias:Persona)
+
+# Class: familias:Persona (familias:Persona)
+
+AnnotationAssertion(rdfs:comment familias:Persona "Personas")
+
+# Class: familias:Progenitor (familias:Progenitor)
+
+EquivalentClasses(familias:Progenitor ObjectIntersectionOf(familias:Persona ObjectSomeValuesFrom(familias:esAscendenteDe familias:Persona)))
+SubClassOf(familias:Progenitor familias:Persona)
+
+# Class: familias:TerceraEdad (familias:TerceraEdad)
+
+EquivalentClasses(familias:TerceraEdad ObjectIntersectionOf(familias:Persona DataSomeValuesFrom(familias:tieneEdad DatatypeRestriction(xsd:integer xsd:minExclusive "65"^^xsd:integer))))
+SubClassOf(familias:TerceraEdad familias:Persona)
+
+# Class: familias:Tios (familias:Tios)
+
+SubClassOf(familias:Tios familias:Persona)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: familias:Eugenia (familias:Eugenia)
+
+ClassAssertion(familias:Persona familias:Eugenia)
+ObjectPropertyAssertion(familias:esAbuelaDe familias:Eugenia familias:Luis)
+ObjectPropertyAssertion(familias:esAbuelaDe familias:Eugenia familias:Maria)
+ObjectPropertyAssertion(familias:esAbuelaDe familias:Eugenia familias:Sandra)
+ObjectPropertyAssertion(familias:esMadreDe familias:Eugenia familias:Lucia)
+ObjectPropertyAssertion(familias:esMadreDe familias:Eugenia familias:Manuel)
+ObjectPropertyAssertion(familias:esMujerDe familias:Eugenia familias:Pedro)
+ObjectPropertyAssertion(familias:tieneGenero familias:Eugenia familias:femenino)
+DataPropertyAssertion(familias:numeroHijos familias:Eugenia "2"^^xsd:integer)
+DataPropertyAssertion(familias:tieneEdad familias:Eugenia "72"^^xsd:integer)
+
+# Individual: familias:Juan (familias:Juan)
+
+ClassAssertion(familias:Persona familias:Juan)
+ObjectPropertyAssertion(familias:esPadreDe familias:Juan familias:Luis)
+ObjectPropertyAssertion(familias:esPadreDe familias:Juan familias:Maria)
+ObjectPropertyAssertion(familias:esPadreDe familias:Juan familias:Sandra)
+ObjectPropertyAssertion(familias:esParejaDe familias:Juan familias:Lucia)
+ObjectPropertyAssertion(familias:tieneGenero familias:Juan familias:masculino)
+DataPropertyAssertion(familias:numeroHijos familias:Juan "3"^^xsd:integer)
+DataPropertyAssertion(familias:tieneEdad familias:Juan "52"^^xsd:integer)
+
+# Individual: familias:Lucia (familias:Lucia)
+
+ClassAssertion(familias:Persona familias:Lucia)
+ObjectPropertyAssertion(familias:esHijaDe familias:Lucia familias:Eugenia)
+ObjectPropertyAssertion(familias:esHijaDe familias:Lucia familias:Pedro)
+ObjectPropertyAssertion(familias:esMadreDe familias:Lucia familias:Luis)
+ObjectPropertyAssertion(familias:esMadreDe familias:Lucia familias:Maria)
+ObjectPropertyAssertion(familias:esMadreDe familias:Lucia familias:Sandra)
+ObjectPropertyAssertion(familias:esMujerDe familias:Lucia familias:Juan)
+ObjectPropertyAssertion(familias:tieneGenero familias:Lucia familias:femenino)
+DataPropertyAssertion(familias:numeroHijos familias:Lucia "3"^^xsd:integer)
+DataPropertyAssertion(familias:tieneEdad familias:Lucia "49"^^xsd:integer)
+
+# Individual: familias:Luis (familias:Luis)
+
+ClassAssertion(familias:Persona familias:Luis)
+ObjectPropertyAssertion(familias:esHermanoDe familias:Luis familias:Maria)
+ObjectPropertyAssertion(familias:esHermanoDe familias:Luis familias:Sandra)
+ObjectPropertyAssertion(familias:esHijoDe familias:Luis familias:Juan)
+ObjectPropertyAssertion(familias:esHijoDe familias:Luis familias:Lucia)
+ObjectPropertyAssertion(familias:tieneGenero familias:Luis familias:masculino)
+DataPropertyAssertion(familias:tieneEdad familias:Luis "24"^^xsd:integer)
+
+# Individual: familias:Manuel (familias:Manuel)
+
+ObjectPropertyAssertion(familias:esHermanoDe familias:Manuel familias:Lucia)
+ObjectPropertyAssertion(familias:esHijoDe familias:Manuel familias:Eugenia)
+ObjectPropertyAssertion(familias:esHijoDe familias:Manuel familias:Pedro)
+ObjectPropertyAssertion(familias:tieneGenero familias:Manuel familias:masculino)
+
+# Individual: familias:Maria (familias:Maria)
+
+ClassAssertion(familias:Persona familias:Maria)
+ObjectPropertyAssertion(familias:esHermanaDe familias:Maria familias:Luis)
+ObjectPropertyAssertion(familias:esHermanaDe familias:Maria familias:Sandra)
+ObjectPropertyAssertion(familias:esHijaDe familias:Maria familias:Juan)
+ObjectPropertyAssertion(familias:esHijaDe familias:Maria familias:Lucia)
+ObjectPropertyAssertion(familias:tieneGenero familias:Maria familias:femenino)
+DataPropertyAssertion(familias:tieneEdad familias:Maria "17"^^xsd:integer)
+
+# Individual: familias:Pedro (familias:Pedro)
+
+ClassAssertion(familias:Persona familias:Pedro)
+ObjectPropertyAssertion(familias:esAbueloDe familias:Pedro familias:Luis)
+ObjectPropertyAssertion(familias:esAbueloDe familias:Pedro familias:Maria)
+ObjectPropertyAssertion(familias:esAbueloDe familias:Pedro familias:Sandra)
+ObjectPropertyAssertion(familias:esPadreDe familias:Pedro familias:Lucia)
+ObjectPropertyAssertion(familias:esPadreDe familias:Pedro familias:Manuel)
+ObjectPropertyAssertion(familias:tieneGenero familias:Pedro familias:masculino)
+DataPropertyAssertion(familias:numeroHijos familias:Pedro "2"^^xsd:integer)
+DataPropertyAssertion(familias:tieneEdad familias:Pedro "75"^^xsd:integer)
+
+# Individual: familias:Sandra (familias:Sandra)
+
+ClassAssertion(familias:Persona familias:Sandra)
+ObjectPropertyAssertion(familias:esHermanaDe familias:Sandra familias:Luis)
+ObjectPropertyAssertion(familias:esHermanaDe familias:Sandra familias:Maria)
+ObjectPropertyAssertion(familias:esHijaDe familias:Sandra familias:Juan)
+ObjectPropertyAssertion(familias:esHijaDe familias:Sandra familias:Lucia)
+ObjectPropertyAssertion(familias:tieneGenero familias:Sandra familias:femenino)
+DataPropertyAssertion(familias:tieneEdad familias:Sandra "16"^^xsd:integer)
+
+# Individual: familias:femenino (familias:femenino)
+
+ClassAssertion(familias:Genero familias:femenino)
+
+# Individual: familias:masculino (familias:masculino)
+
+ClassAssertion(familias:Genero familias:masculino)
+
+
+DifferentIndividuals(familias:Luis familias:Sandra)
+)

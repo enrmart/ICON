@@ -1,0 +1,169 @@
+Prefix(:=<http://www.semanticweb.org/enroc/ontologies/2023/0/untitled-ontology-15#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(untitled-ontology-15:=<http://www.semanticweb.org/enroc/ontologies/2023/0/untitled-ontology-15#>)
+
+
+Ontology(<http://www.semanticweb.org/enroc/ontologies/2023/0/untitled-ontology-15>
+Annotation(rdfs:comment "Modelamos el mundo de las Cervezas")
+
+Declaration(Class(untitled-ontology-15:Cerveza))
+Declaration(Class(untitled-ontology-15:CervezaBajaGraduacion))
+Declaration(Class(untitled-ontology-15:CervezaMahou))
+Declaration(Class(untitled-ontology-15:Fabrica))
+Declaration(Class(untitled-ontology-15:FabricaDeCervezaRubia))
+Declaration(Class(untitled-ontology-15:Marca))
+Declaration(Class(untitled-ontology-15:MarcaConAlMenos2CervezasDistintas))
+Declaration(Class(untitled-ontology-15:Pais))
+Declaration(Class(untitled-ontology-15:PaisFabricantesDeAlMenos2CervezasRubias))
+Declaration(Class(untitled-ontology-15:tipoCerveza))
+Declaration(ObjectProperty(untitled-ontology-15:esDelTipo))
+Declaration(ObjectProperty(untitled-ontology-15:estaEnPais))
+Declaration(ObjectProperty(untitled-ontology-15:fabricaLaCerveza))
+Declaration(ObjectProperty(untitled-ontology-15:fabricaPara))
+Declaration(ObjectProperty(untitled-ontology-15:seFabrica))
+Declaration(ObjectProperty(untitled-ontology-15:seFabricaEnElPais))
+Declaration(ObjectProperty(untitled-ontology-15:tieneFabricaEn))
+Declaration(ObjectProperty(untitled-ontology-15:tieneLaCerveza))
+Declaration(ObjectProperty(untitled-ontology-15:tieneLaFabrica))
+Declaration(ObjectProperty(untitled-ontology-15:tieneMarca))
+Declaration(DataProperty(untitled-ontology-15:hasGraduacion))
+Declaration(NamedIndividual(untitled-ontology-15:Mahou))
+Declaration(NamedIndividual(untitled-ontology-15:Negra))
+Declaration(NamedIndividual(untitled-ontology-15:Rubia))
+Declaration(NamedIndividual(untitled-ontology-15:Tostada))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: untitled-ontology-15:esDelTipo (untitled-ontology-15:esDelTipo)
+
+SubObjectPropertyOf(untitled-ontology-15:esDelTipo owl:topObjectProperty)
+ObjectPropertyDomain(untitled-ontology-15:esDelTipo untitled-ontology-15:Cerveza)
+ObjectPropertyRange(untitled-ontology-15:esDelTipo untitled-ontology-15:tipoCerveza)
+
+# Object Property: untitled-ontology-15:estaEnPais (untitled-ontology-15:estaEnPais)
+
+SubObjectPropertyOf(untitled-ontology-15:estaEnPais owl:topObjectProperty)
+InverseObjectProperties(untitled-ontology-15:estaEnPais untitled-ontology-15:tieneLaFabrica)
+ObjectPropertyDomain(untitled-ontology-15:estaEnPais untitled-ontology-15:Fabrica)
+ObjectPropertyRange(untitled-ontology-15:estaEnPais untitled-ontology-15:Pais)
+
+# Object Property: untitled-ontology-15:fabricaLaCerveza (untitled-ontology-15:fabricaLaCerveza)
+
+SubObjectPropertyOf(untitled-ontology-15:fabricaLaCerveza owl:topObjectProperty)
+InverseObjectProperties(untitled-ontology-15:fabricaLaCerveza untitled-ontology-15:seFabrica)
+
+# Object Property: untitled-ontology-15:fabricaPara (untitled-ontology-15:fabricaPara)
+
+SubObjectPropertyOf(untitled-ontology-15:fabricaPara owl:topObjectProperty)
+InverseObjectProperties(untitled-ontology-15:fabricaPara untitled-ontology-15:tieneFabricaEn)
+ObjectPropertyDomain(untitled-ontology-15:fabricaPara untitled-ontology-15:Fabrica)
+ObjectPropertyRange(untitled-ontology-15:fabricaPara untitled-ontology-15:Marca)
+
+# Object Property: untitled-ontology-15:seFabrica (untitled-ontology-15:seFabrica)
+
+SubObjectPropertyOf(untitled-ontology-15:seFabrica owl:topObjectProperty)
+ObjectPropertyDomain(untitled-ontology-15:seFabrica untitled-ontology-15:Cerveza)
+ObjectPropertyRange(untitled-ontology-15:seFabrica untitled-ontology-15:Fabrica)
+
+# Object Property: untitled-ontology-15:seFabricaEnElPais (untitled-ontology-15:seFabricaEnElPais)
+
+SubObjectPropertyOf(untitled-ontology-15:seFabricaEnElPais owl:topObjectProperty)
+ObjectPropertyDomain(untitled-ontology-15:seFabricaEnElPais untitled-ontology-15:Cerveza)
+ObjectPropertyRange(untitled-ontology-15:seFabricaEnElPais untitled-ontology-15:Pais)
+
+# Object Property: untitled-ontology-15:tieneFabricaEn (untitled-ontology-15:tieneFabricaEn)
+
+SubObjectPropertyOf(untitled-ontology-15:tieneFabricaEn owl:topObjectProperty)
+
+# Object Property: untitled-ontology-15:tieneLaCerveza (untitled-ontology-15:tieneLaCerveza)
+
+SubObjectPropertyOf(untitled-ontology-15:tieneLaCerveza owl:topObjectProperty)
+InverseObjectProperties(untitled-ontology-15:tieneLaCerveza untitled-ontology-15:tieneMarca)
+
+# Object Property: untitled-ontology-15:tieneLaFabrica (untitled-ontology-15:tieneLaFabrica)
+
+SubObjectPropertyOf(untitled-ontology-15:tieneLaFabrica owl:topObjectProperty)
+
+# Object Property: untitled-ontology-15:tieneMarca (untitled-ontology-15:tieneMarca)
+
+SubObjectPropertyOf(untitled-ontology-15:tieneMarca owl:topObjectProperty)
+FunctionalObjectProperty(untitled-ontology-15:tieneMarca)
+AsymmetricObjectProperty(untitled-ontology-15:tieneMarca)
+IrreflexiveObjectProperty(untitled-ontology-15:tieneMarca)
+ObjectPropertyDomain(untitled-ontology-15:tieneMarca untitled-ontology-15:Cerveza)
+ObjectPropertyRange(untitled-ontology-15:tieneMarca untitled-ontology-15:Marca)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: untitled-ontology-15:hasGraduacion (untitled-ontology-15:hasGraduacion)
+
+SubDataPropertyOf(untitled-ontology-15:hasGraduacion owl:topDataProperty)
+
+# Data Property: owl:topDataProperty (owl:topDataProperty)
+
+DataPropertyRange(owl:topDataProperty xsd:double)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: untitled-ontology-15:CervezaBajaGraduacion (untitled-ontology-15:CervezaBajaGraduacion)
+
+EquivalentClasses(untitled-ontology-15:CervezaBajaGraduacion DataMaxCardinality(5 untitled-ontology-15:hasGraduacion xsd:double))
+SubClassOf(untitled-ontology-15:CervezaBajaGraduacion untitled-ontology-15:Cerveza)
+
+# Class: untitled-ontology-15:CervezaMahou (untitled-ontology-15:CervezaMahou)
+
+EquivalentClasses(untitled-ontology-15:CervezaMahou ObjectIntersectionOf(untitled-ontology-15:Cerveza ObjectHasValue(untitled-ontology-15:tieneMarca untitled-ontology-15:Mahou)))
+SubClassOf(untitled-ontology-15:CervezaMahou untitled-ontology-15:Cerveza)
+
+# Class: untitled-ontology-15:FabricaDeCervezaRubia (untitled-ontology-15:FabricaDeCervezaRubia)
+
+EquivalentClasses(untitled-ontology-15:FabricaDeCervezaRubia ObjectIntersectionOf(untitled-ontology-15:Fabrica ObjectSomeValuesFrom(untitled-ontology-15:fabricaLaCerveza ObjectHasValue(untitled-ontology-15:esDelTipo untitled-ontology-15:Rubia))))
+SubClassOf(untitled-ontology-15:FabricaDeCervezaRubia untitled-ontology-15:Fabrica)
+
+# Class: untitled-ontology-15:MarcaConAlMenos2CervezasDistintas (untitled-ontology-15:MarcaConAlMenos2CervezasDistintas)
+
+EquivalentClasses(untitled-ontology-15:MarcaConAlMenos2CervezasDistintas ObjectIntersectionOf(untitled-ontology-15:Marca ObjectMinCardinality(2 untitled-ontology-15:tieneLaCerveza untitled-ontology-15:Cerveza)))
+SubClassOf(untitled-ontology-15:MarcaConAlMenos2CervezasDistintas untitled-ontology-15:Marca)
+
+# Class: untitled-ontology-15:PaisFabricantesDeAlMenos2CervezasRubias (untitled-ontology-15:PaisFabricantesDeAlMenos2CervezasRubias)
+
+EquivalentClasses(untitled-ontology-15:PaisFabricantesDeAlMenos2CervezasRubias ObjectIntersectionOf(untitled-ontology-15:Pais ObjectMinCardinality(2 untitled-ontology-15:tieneLaFabrica untitled-ontology-15:FabricaDeCervezaRubia)))
+SubClassOf(untitled-ontology-15:PaisFabricantesDeAlMenos2CervezasRubias untitled-ontology-15:Pais)
+
+# Class: untitled-ontology-15:tipoCerveza (untitled-ontology-15:tipoCerveza)
+
+EquivalentClasses(untitled-ontology-15:tipoCerveza ObjectOneOf(untitled-ontology-15:Negra untitled-ontology-15:Rubia untitled-ontology-15:Tostada))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: untitled-ontology-15:Negra (untitled-ontology-15:Negra)
+
+ClassAssertion(untitled-ontology-15:tipoCerveza untitled-ontology-15:Negra)
+
+# Individual: untitled-ontology-15:Rubia (untitled-ontology-15:Rubia)
+
+ClassAssertion(untitled-ontology-15:tipoCerveza untitled-ontology-15:Rubia)
+
+# Individual: untitled-ontology-15:Tostada (untitled-ontology-15:Tostada)
+
+ClassAssertion(untitled-ontology-15:tipoCerveza untitled-ontology-15:Tostada)
+
+
+SubObjectPropertyOf(ObjectPropertyChain(untitled-ontology-15:seFabrica untitled-ontology-15:estaEnPais) untitled-ontology-15:seFabricaEnElPais)
+)

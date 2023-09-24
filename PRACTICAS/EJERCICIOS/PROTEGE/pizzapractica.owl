@@ -1,0 +1,347 @@
+Prefix(:=<http://www.semanticweb.org/enroc/ontologies/2022/10/pizza#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(pizza:=<http://www.semanticweb.org/enroc/ontologies/2022/10/pizza#>)
+Prefix(untitled-ontology-8:=<http://www.semanticweb.org/enroc/ontologies/2022/10/untitled-ontology-8#>)
+
+
+Ontology(<http://www.semanticweb.org/enroc/ontologies/2022/10/pizza>
+Annotation(rdfs:comment "Ontology to describe pizza world")
+
+Declaration(Class(pizza:AmericanaHotPizza))
+Declaration(Class(pizza:AmericanaPizza))
+Declaration(Class(pizza:AnchovyTopping))
+Declaration(Class(pizza:CaperTopping))
+Declaration(Class(pizza:CheeseTopping))
+Declaration(Class(pizza:CheesyPizza))
+Declaration(Class(pizza:DeepPanBase))
+Declaration(Class(pizza:GreenPepperTopping))
+Declaration(Class(pizza:HamTopping))
+Declaration(Class(pizza:InterestingPizza))
+Declaration(Class(pizza:JalapenoPepperTopping))
+Declaration(Class(pizza:MargheritaPizza))
+Declaration(Class(pizza:MeatTopping))
+Declaration(Class(pizza:MozzarellaTopping))
+Declaration(Class(pizza:MushroomTopping))
+Declaration(Class(pizza:NamedPizza))
+Declaration(Class(pizza:OliveTopping))
+Declaration(Class(pizza:ParmesanTopping))
+Declaration(Class(pizza:PepperTopping))
+Declaration(Class(pizza:PepperoniTopping))
+Declaration(Class(pizza:Pizza))
+Declaration(Class(pizza:PizzaBase))
+Declaration(Class(pizza:PizzaTopping))
+Declaration(Class(pizza:PrawnTopping))
+Declaration(Class(pizza:RedPepperTopping))
+Declaration(Class(pizza:SalamiTopping))
+Declaration(Class(pizza:SeafoodTopping))
+Declaration(Class(pizza:SohoPizza))
+Declaration(Class(pizza:Spiciness))
+Declaration(Class(pizza:SpicyBeefTopping))
+Declaration(Class(pizza:SpicyPizza))
+Declaration(Class(pizza:ThinAndCrispyBase))
+Declaration(Class(pizza:TomatoTopping))
+Declaration(Class(pizza:TunaTopping))
+Declaration(Class(pizza:VegetableTopping))
+Declaration(Class(pizza:VegetarianPizza))
+Declaration(ObjectProperty(pizza:hasBase))
+Declaration(ObjectProperty(pizza:hasIngredient))
+Declaration(ObjectProperty(pizza:hasSpiciness))
+Declaration(ObjectProperty(pizza:hasTopping))
+Declaration(ObjectProperty(pizza:isBaseOf))
+Declaration(ObjectProperty(pizza:isIngedientOf))
+Declaration(ObjectProperty(pizza:isMilderThan))
+Declaration(ObjectProperty(pizza:isSpicierThan))
+Declaration(ObjectProperty(pizza:isToppingOf))
+Declaration(DataProperty(pizza:hasCaloricContent))
+Declaration(NamedIndividual(pizza:DeepPanBase1))
+Declaration(NamedIndividual(pizza:Hot))
+Declaration(NamedIndividual(pizza:Medium))
+Declaration(NamedIndividual(pizza:Mild))
+Declaration(NamedIndividual(pizza:Pizza1))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: pizza:hasBase (pizza:hasBase)
+
+SubObjectPropertyOf(pizza:hasBase pizza:hasIngredient)
+InverseObjectProperties(pizza:hasBase pizza:isBaseOf)
+ObjectPropertyDomain(pizza:hasBase pizza:Pizza)
+ObjectPropertyRange(pizza:hasBase pizza:PizzaBase)
+
+# Object Property: pizza:hasIngredient (pizza:hasIngredient)
+
+SubObjectPropertyOf(pizza:hasIngredient pizza:hasIngredient)
+SubObjectPropertyOf(pizza:hasIngredient owl:topObjectProperty)
+InverseObjectProperties(pizza:hasIngredient pizza:isIngedientOf)
+
+# Object Property: pizza:hasSpiciness (pizza:hasSpiciness)
+
+ObjectPropertyDomain(pizza:hasSpiciness pizza:PizzaTopping)
+ObjectPropertyRange(pizza:hasSpiciness pizza:Spiciness)
+
+# Object Property: pizza:hasTopping (pizza:hasTopping)
+
+SubObjectPropertyOf(pizza:hasTopping pizza:hasIngredient)
+InverseObjectProperties(pizza:hasTopping pizza:isToppingOf)
+ObjectPropertyDomain(pizza:hasTopping pizza:Pizza)
+ObjectPropertyRange(pizza:hasTopping pizza:PizzaTopping)
+
+# Object Property: pizza:isBaseOf (pizza:isBaseOf)
+
+SubObjectPropertyOf(pizza:isBaseOf pizza:isIngedientOf)
+ObjectPropertyDomain(pizza:isBaseOf pizza:PizzaBase)
+ObjectPropertyRange(pizza:isBaseOf pizza:Pizza)
+
+# Object Property: pizza:isIngedientOf (pizza:isIngedientOf)
+
+SubObjectPropertyOf(pizza:isIngedientOf owl:topObjectProperty)
+
+# Object Property: pizza:isMilderThan (pizza:isMilderThan)
+
+SubObjectPropertyOf(pizza:isMilderThan owl:topObjectProperty)
+InverseObjectProperties(pizza:isMilderThan pizza:isSpicierThan)
+
+# Object Property: pizza:isSpicierThan (pizza:isSpicierThan)
+
+TransitiveObjectProperty(pizza:isSpicierThan)
+ObjectPropertyDomain(pizza:isSpicierThan pizza:Spiciness)
+
+# Object Property: pizza:isToppingOf (pizza:isToppingOf)
+
+SubObjectPropertyOf(pizza:isToppingOf pizza:isIngedientOf)
+ObjectPropertyDomain(pizza:isToppingOf pizza:PizzaTopping)
+ObjectPropertyRange(pizza:isToppingOf pizza:Pizza)
+
+# Object Property: owl:topObjectProperty (owl:topObjectProperty)
+
+TransitiveObjectProperty(owl:topObjectProperty)
+ObjectPropertyDomain(owl:topObjectProperty pizza:Spiciness)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: pizza:hasCaloricContent (pizza:hasCaloricContent)
+
+FunctionalDataProperty(pizza:hasCaloricContent)
+DataPropertyDomain(pizza:hasCaloricContent pizza:Pizza)
+DataPropertyRange(pizza:hasCaloricContent xsd:integer)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: pizza:AmericanaHotPizza (pizza:AmericanaHotPizza)
+
+AnnotationAssertion(rdfs:comment pizza:AmericanaHotPizza "AmericanaPizza is defined by Mozarella.Tomato and Pepperoni Toppings")
+SubClassOf(pizza:AmericanaHotPizza pizza:NamedPizza)
+SubClassOf(pizza:AmericanaHotPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:JalapenoPepperTopping))
+SubClassOf(pizza:AmericanaHotPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:MozzarellaTopping))
+SubClassOf(pizza:AmericanaHotPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:PepperoniTopping))
+SubClassOf(pizza:AmericanaHotPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:TomatoTopping))
+DisjointClasses(pizza:AmericanaHotPizza pizza:AmericanaPizza)
+DisjointClasses(pizza:AmericanaHotPizza pizza:MargheritaPizza)
+DisjointClasses(pizza:AmericanaHotPizza pizza:SohoPizza)
+
+# Class: pizza:AmericanaPizza (pizza:AmericanaPizza)
+
+AnnotationAssertion(rdfs:comment pizza:AmericanaPizza "AmericanaPizza is defined by Mozarella.Tomato and Pepperoni Toppings")
+SubClassOf(pizza:AmericanaPizza pizza:NamedPizza)
+SubClassOf(pizza:AmericanaPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:MozzarellaTopping))
+SubClassOf(pizza:AmericanaPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:PepperoniTopping))
+SubClassOf(pizza:AmericanaPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:TomatoTopping))
+DisjointClasses(pizza:AmericanaPizza pizza:MargheritaPizza)
+DisjointClasses(pizza:AmericanaPizza pizza:SohoPizza)
+
+# Class: pizza:AnchovyTopping (pizza:AnchovyTopping)
+
+SubClassOf(pizza:AnchovyTopping pizza:SeafoodTopping)
+
+# Class: pizza:CaperTopping (pizza:CaperTopping)
+
+SubClassOf(pizza:CaperTopping pizza:VegetableTopping)
+
+# Class: pizza:CheeseTopping (pizza:CheeseTopping)
+
+SubClassOf(pizza:CheeseTopping pizza:PizzaTopping)
+
+# Class: pizza:CheesyPizza (pizza:CheesyPizza)
+
+EquivalentClasses(pizza:CheesyPizza ObjectIntersectionOf(pizza:Pizza ObjectSomeValuesFrom(pizza:hasTopping pizza:CheeseTopping)))
+
+# Class: pizza:DeepPanBase (pizza:DeepPanBase)
+
+SubClassOf(pizza:DeepPanBase pizza:PizzaBase)
+DisjointClasses(pizza:DeepPanBase pizza:ThinAndCrispyBase)
+
+# Class: pizza:GreenPepperTopping (pizza:GreenPepperTopping)
+
+SubClassOf(pizza:GreenPepperTopping pizza:PepperTopping)
+
+# Class: pizza:HamTopping (pizza:HamTopping)
+
+SubClassOf(pizza:HamTopping pizza:MeatTopping)
+
+# Class: pizza:InterestingPizza (pizza:InterestingPizza)
+
+EquivalentClasses(pizza:InterestingPizza ObjectIntersectionOf(pizza:Pizza ObjectMinCardinality(3 pizza:hasTopping pizza:PizzaTopping)))
+
+# Class: pizza:JalapenoPepperTopping (pizza:JalapenoPepperTopping)
+
+SubClassOf(pizza:JalapenoPepperTopping pizza:PepperTopping)
+SubClassOf(pizza:JalapenoPepperTopping ObjectHasValue(pizza:hasSpiciness pizza:Hot))
+
+# Class: pizza:MargheritaPizza (pizza:MargheritaPizza)
+
+SubClassOf(pizza:MargheritaPizza pizza:NamedPizza)
+SubClassOf(pizza:MargheritaPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:MozzarellaTopping))
+SubClassOf(pizza:MargheritaPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:TomatoTopping))
+SubClassOf(pizza:MargheritaPizza ObjectAllValuesFrom(pizza:hasTopping ObjectUnionOf(pizza:MozzarellaTopping pizza:TomatoTopping)))
+DisjointClasses(pizza:MargheritaPizza pizza:SohoPizza)
+
+# Class: pizza:MeatTopping (pizza:MeatTopping)
+
+SubClassOf(pizza:MeatTopping pizza:PizzaTopping)
+
+# Class: pizza:MozzarellaTopping (pizza:MozzarellaTopping)
+
+SubClassOf(pizza:MozzarellaTopping pizza:CheeseTopping)
+DisjointClasses(pizza:MozzarellaTopping pizza:ParmesanTopping)
+
+# Class: pizza:MushroomTopping (pizza:MushroomTopping)
+
+SubClassOf(pizza:MushroomTopping pizza:VegetableTopping)
+
+# Class: pizza:NamedPizza (pizza:NamedPizza)
+
+SubClassOf(pizza:NamedPizza pizza:Pizza)
+
+# Class: pizza:OliveTopping (pizza:OliveTopping)
+
+SubClassOf(pizza:OliveTopping pizza:VegetableTopping)
+
+# Class: pizza:ParmesanTopping (pizza:ParmesanTopping)
+
+SubClassOf(pizza:ParmesanTopping pizza:CheeseTopping)
+
+# Class: pizza:PepperTopping (pizza:PepperTopping)
+
+SubClassOf(pizza:PepperTopping pizza:VegetableTopping)
+
+# Class: pizza:PepperoniTopping (pizza:PepperoniTopping)
+
+SubClassOf(pizza:PepperoniTopping pizza:MeatTopping)
+
+# Class: pizza:Pizza (pizza:Pizza)
+
+SubClassOf(pizza:Pizza ObjectSomeValuesFrom(pizza:hasBase pizza:PizzaBase))
+SubClassOf(pizza:Pizza ObjectSomeValuesFrom(pizza:hasTopping pizza:PizzaTopping))
+SubClassOf(pizza:Pizza DataSomeValuesFrom(pizza:hasCaloricContent xsd:integer))
+DisjointClasses(pizza:Pizza pizza:PizzaBase)
+DisjointClasses(pizza:Pizza pizza:PizzaTopping)
+
+# Class: pizza:PizzaBase (pizza:PizzaBase)
+
+DisjointClasses(pizza:PizzaBase pizza:PizzaTopping)
+
+# Class: pizza:PrawnTopping (pizza:PrawnTopping)
+
+SubClassOf(pizza:PrawnTopping pizza:SeafoodTopping)
+
+# Class: pizza:RedPepperTopping (pizza:RedPepperTopping)
+
+SubClassOf(pizza:RedPepperTopping pizza:PepperTopping)
+
+# Class: pizza:SalamiTopping (pizza:SalamiTopping)
+
+SubClassOf(pizza:SalamiTopping pizza:MeatTopping)
+
+# Class: pizza:SeafoodTopping (pizza:SeafoodTopping)
+
+SubClassOf(pizza:SeafoodTopping pizza:PizzaTopping)
+
+# Class: pizza:SohoPizza (pizza:SohoPizza)
+
+SubClassOf(pizza:SohoPizza pizza:NamedPizza)
+SubClassOf(pizza:SohoPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:MozzarellaTopping))
+SubClassOf(pizza:SohoPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:OliveTopping))
+SubClassOf(pizza:SohoPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:ParmesanTopping))
+SubClassOf(pizza:SohoPizza ObjectSomeValuesFrom(pizza:hasTopping pizza:TomatoTopping))
+SubClassOf(pizza:SohoPizza ObjectAllValuesFrom(pizza:hasTopping ObjectUnionOf(pizza:MozzarellaTopping pizza:OliveTopping pizza:ParmesanTopping pizza:TomatoTopping)))
+
+# Class: pizza:Spiciness (pizza:Spiciness)
+
+EquivalentClasses(pizza:Spiciness ObjectOneOf(pizza:Hot pizza:Medium pizza:Mild))
+
+# Class: pizza:SpicyBeefTopping (pizza:SpicyBeefTopping)
+
+SubClassOf(pizza:SpicyBeefTopping pizza:MeatTopping)
+
+# Class: pizza:SpicyPizza (pizza:SpicyPizza)
+
+EquivalentClasses(pizza:SpicyPizza ObjectIntersectionOf(pizza:Pizza ObjectSomeValuesFrom(pizza:hasTopping ObjectHasValue(pizza:hasSpiciness pizza:Hot))))
+
+# Class: pizza:ThinAndCrispyBase (pizza:ThinAndCrispyBase)
+
+SubClassOf(pizza:ThinAndCrispyBase pizza:PizzaBase)
+
+# Class: pizza:TomatoTopping (pizza:TomatoTopping)
+
+SubClassOf(pizza:TomatoTopping pizza:VegetableTopping)
+
+# Class: pizza:TunaTopping (pizza:TunaTopping)
+
+SubClassOf(pizza:TunaTopping pizza:SeafoodTopping)
+
+# Class: pizza:VegetableTopping (pizza:VegetableTopping)
+
+SubClassOf(pizza:VegetableTopping pizza:PizzaTopping)
+
+# Class: pizza:VegetarianPizza (pizza:VegetarianPizza)
+
+EquivalentClasses(pizza:VegetarianPizza ObjectIntersectionOf(pizza:Pizza ObjectAllValuesFrom(pizza:hasTopping ObjectUnionOf(pizza:CheeseTopping pizza:VegetableTopping))))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: pizza:DeepPanBase1 (pizza:DeepPanBase1)
+
+ClassAssertion(pizza:DeepPanBase pizza:DeepPanBase1)
+
+# Individual: pizza:Hot (pizza:Hot)
+
+ClassAssertion(pizza:Spiciness pizza:Hot)
+ObjectPropertyAssertion(pizza:isSpicierThan pizza:Hot pizza:Medium)
+
+# Individual: pizza:Medium (pizza:Medium)
+
+ClassAssertion(pizza:Spiciness pizza:Medium)
+ObjectPropertyAssertion(pizza:isSpicierThan pizza:Medium pizza:Mild)
+
+# Individual: pizza:Mild (pizza:Mild)
+
+ClassAssertion(pizza:Spiciness pizza:Mild)
+
+# Individual: pizza:Pizza1 (pizza:Pizza1)
+
+ClassAssertion(pizza:Pizza pizza:Pizza1)
+ObjectPropertyAssertion(pizza:hasBase pizza:Pizza1 pizza:DeepPanBase1)
+
+
+DisjointClasses(pizza:AnchovyTopping pizza:PrawnTopping pizza:TunaTopping)
+DisjointClasses(pizza:CaperTopping pizza:MushroomTopping pizza:OliveTopping pizza:PepperTopping pizza:TomatoTopping)
+DisjointClasses(pizza:CheeseTopping pizza:MeatTopping pizza:SeafoodTopping pizza:VegetableTopping)
+DisjointClasses(pizza:GreenPepperTopping pizza:JalapenoPepperTopping pizza:RedPepperTopping)
+DisjointClasses(pizza:HamTopping pizza:PepperoniTopping pizza:SalamiTopping pizza:SpicyBeefTopping)
+)
